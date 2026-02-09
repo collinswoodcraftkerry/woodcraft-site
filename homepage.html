@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collins Woodcraft - Home</title>
+    <!-- Tailwind CSS CDN for demonstration. In a real project, you'd typically purge unused CSS. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles to match the original design's aesthetic, especially fonts and colors not directly in default Tailwind. */
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: #333; /* Dark grey text */
+        }
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+        .btn-primary {
+            @apply bg-orange-600 text-white px-6 py-3 rounded-md hover:bg-orange-700 transition-colors duration-300;
+        }
+        .btn-secondary {
+            @apply border border-white text-white px-6 py-3 rounded-md hover:bg-white hover:text-orange-600 transition-colors duration-300;
+        }
+        .footer-bg {
+            background-color: #212121; /* Dark background for footer */
+            color: #ccc; /* Lighter text for footer */
+        }
+        .form-input {
+            @apply w-full px-4 py-2 border border-gray-300 rounded-md bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-600;
+        }
+    </style>
+</head>
+<body class="bg-white">
+
+    <!-- Header Section -->
+    <header class="bg-white shadow-md py-4">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="text-2xl font-bold text-gray-800">COLLINS <span class="block text-sm font-normal tracking-widest -mt-1">WOODCRAFT</span></a>
+
+            <!-- Navigation (Desktop) -->
+            <nav class="hidden md:flex space-x-8">
+                <a href="#" class="text-gray-800 hover:text-orange-600 font-semibold transition-colors duration-300">HOME</a>
+                <a href="#" class="text-gray-800 hover:text-orange-600 transition-colors duration-300">WHO WE ARE</a>
+                <a href="#" class="text-gray-800 hover:text-orange-600 transition-colors duration-300">HOME PROJECTS</a>
+                <a href="#" class="text-gray-800 hover:text-orange-600 transition-colors duration-300">COMMERCIAL PROJECTS</a>
+                <a href="#" class="text-gray-800 hover:text-orange-600 transition-colors duration-300">DESIGN PROCESS</a>
+            </nav>
+
+            <!-- Mobile Navigation Toggle (Hamburger Icon) -->
+            <div class="md:hidden flex items-center space-x-4">
+                <span class="text-gray-600">Howdy, Micheal Collins</span>
+                <button class="text-gray-800 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Navigation Dropdown (Hidden by default, toggle with JS) -->
+        <div class="md:hidden">
+            <!-- Example: <nav class="flex flex-col space-y-2 px-4 py-2 bg-gray-100"> ... </nav> -->
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-cover bg-center h-[600px] flex items-center" style="background-image: url('https://images.unsplash.com/photo-1549491790-95318451f159?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+        <div class="container mx-auto px-4 relative z-10 text-white max-w-2xl text-center md:text-left">
+            <h1 class="text-5xl font-extrabold mb-4 drop-shadow-lg">Collins Woodcraft</h1>
+            <p class="text-lg mb-8 leading-relaxed drop-shadow-md">
+                Collins Woodcraft cover all aspects of Carpentry including custom built
+                furniture, wall panelling, home theatre units, fireplaces, custom carpentry
+                including all second fix finishes.
+            </p>
+            <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 justify-center md:justify-start">
+                <a href="#" class="btn-primary">ABOUT US</a>
+                <a href="#" class="btn-secondary">SERVICES</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Welcome Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4 text-center max-w-4xl">
+            <h2 class="text-4xl font-bold mb-4 text-gray-800">Welcome to Collins Woodcraft</h2>
+            <h3 class="text-xl text-orange-600 mb-8">Quality Craftsmanship That Goes Hand in Hand with Excellent Customer Service.</h3>
+            <p class="text-gray-700 leading-relaxed mb-4">
+                Based in Kerry, Collins Woodcraft has been delivering top quality, carpentry and joinery services to both the domestic and commercial sectors across the Munster region
+                since 2003. We are a well-established team of specialists in carpentry and joinery based in Kerry. Whether you are looking to refresh the look of your home or require
+                something built you have seen on Pinterest or social media outlets we will be happy to help. Our carpentry services are one of the best available across Munster.
+            </p>
+        </div>
+    </section>
+
+    <!-- Our Services & Gallery Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12">
+            <!-- Our Services Column -->
+            <div>
+                <h2 class="text-3xl font-bold mb-4 text-gray-800">Our Services</h2>
+                <p class="text-orange-600 text-lg mb-8">Designed and built to suit your needs.</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 mb-8">
+                    <ul class="list-disc list-inside text-gray-700 space-y-2">
+                        <li>Custom built furniture</li>
+                        <li>Wall panelling</li>
+                        <li>Modern and classic staircases</li>
+                        <li>Furniture construction</li>
+                        <li>Bespoke joinery</li>
+                    </ul>
+                    <ul class="list-disc list-inside text-gray-700 space-y-2">
+                        <li>Fireplaces</li>
+                        <li>Home theatre units</li>
+                        <li>Timber windows and doors</li>
+                        <li>Tailored kitchens</li>
+                    </ul>
+                </div>
+                <p class="text-gray-700 leading-relaxed mb-6">
+                    If you require a company with a strong reputation for high standards, reliability
+                    and customer service, then call Micheal on <strong class="text-orange-600">087 216 5722</strong> to discuss your project.
+                </p>
+                <a href="#" class="btn-primary inline-block">VIEW SERVICES</a>
+            </div>
+
+            <!-- Gallery Column -->
+            <div>
+                <h2 class="text-3xl font-bold mb-4 text-gray-800">Gallery</h2>
+                <p class="text-orange-600 text-lg mb-8">A small sample of our work.</p>
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-8">
+                    <img src="https://via.placeholder.com/150/FF8C00/FFFFFF?text=Woodcraft+1" alt="Woodcraft gallery image 1" class="w-full h-32 object-cover rounded-lg shadow-md">
+                    <img src="https://via.placeholder.com/150/FF8C00/FFFFFF?text=Woodcraft+2" alt="Woodcraft gallery image 2" class="w-full h-32 object-cover rounded-lg shadow-md">
+                    <img src="https://via.placeholder.com/150/FF8C00/FFFFFF?text=Woodcraft+3" alt="Woodcraft gallery image 3" class="w-full h-32 object-cover rounded-lg shadow-md">
+                    <img src="https://via.placeholder.com/150/FF8C00/FFFFFF?text=Woodcraft+4" alt="Woodcraft gallery image 4" class="w-full h-32 object-cover rounded-lg shadow-md">
+                    <img src="https://via.placeholder.com/150/FF8C00/FFFFFF?text=Woodcraft+5" alt="Woodcraft gallery image 5" class="w-full h-32 object-cover rounded-lg shadow-md">
+                    <img src="https://via.placeholder.com/150/FF8C00/FFFFFF?text=Woodcraft+6" alt="Woodcraft gallery image 6" class="w-full h-32 object-cover rounded-lg shadow-md">
+                </div>
+                <a href="#" class="btn-primary inline-block">VIEW PORTFOLIO</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Information / Contact CTA -->
+    <section class="py-16 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1549491790-95318451f159?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
+        <div class="absolute inset-0 bg-black opacity-60"></div>
+        <div class="container mx-auto px-4 text-center relative z-10 py-12">
+            <h3 class="text-3xl font-bold text-white mb-6">ADDITIONAL INFORMATION</h3>
+            <p class="text-white text-lg mb-8">If you require further information about any of our services, please do not hesitate to contact us:</p>
+            <p class="text-white text-xl mb-2">Call Micheal: <strong class="text-orange-400">087 216 5722</strong></p>
+            <p class="text-white text-xl mb-8">Email: <strong class="text-orange-400">collinswoodcraftkerry@gmail.com</strong></p>
+            <a href="#" class="btn-primary inline-block">CONTACT US</a>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer-bg py-16">
+        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-12">
+
+            <!-- Footer Logo & Description -->
+            <div class="md:col-span-1">
+                <a href="#" class="text-2xl font-bold text-white mb-4 block">COLLINS <span class="block text-sm font-normal tracking-widest -mt-1">WOODCRAFT</span></a>
+                <p class="text-gray-400 leading-relaxed text-sm">
+                    Collins Woodcraft cover all aspects of Carpentry including custom built
+                    furniture, wall panelling, home theatre units, fireplaces, custom carpentry
+                    including all second fix finishes.
+                </p>
+            </div>
+
+            <!-- Request a Callback Form -->
+            <div class="md:col-span-1">
+                <h4 class="text-xl font-semibold text-white mb-6">REQUEST A CALLBACK</h4>
+                <form class="space-y-4">
+                    <div>
+                        <input type="text" placeholder="Your Name*" class="form-input">
+                    </div>
+                    <div>
+                        <input type="tel" placeholder="Phone Number*" class="form-input">
+                    </div>
+                    <div>
+                        <input type="email" placeholder="Email Address*" class="form-input">
+                    </div>
+                    <div>
+                        <textarea placeholder="Your Message" rows="4" class="form-input resize-none"></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary w-full">SEND</button>
+                </form>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="md:col-span-1">
+                <h4 class="text-xl font-semibold text-white mb-6">QUICK LINKS</h4>
+                <ul class="space-y-3">
+                    <li><a href="#" class="text-gray-400 hover:text-orange-600 transition-colors duration-300">Home</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-orange-600 transition-colors duration-300">Who we are</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-orange-600 transition-colors duration-300">Home Projects</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-orange-600 transition-colors duration-300">Commercial Projects</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-orange-600 transition-colors duration-300">Design Process</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Details -->
+            <div class="md:col-span-1">
+                <h4 class="text-xl font-semibold text-white mb-6">CONTACT DETAILS</h4>
+                <p class="text-gray-400 leading-relaxed mb-6">
+                    If you have a carpentry project you
+                    think we will be able to help with and
+                    would like to discuss further, please
+                    contact us.
+                </p>
+                <a href="#" class="btn-primary inline-block mb-6">CONTACT US</a>
+                <p class="text-gray-400 text-base mb-2">Call Micheal: <strong class="text-orange-400">087 216 5722</strong></p>
+                <p class="text-gray-400 text-base">Email:<br><strong class="text-orange-400">collinswoodcraftkerry@gmail.com</strong></p>
+            </div>
+        </div>
+
+        <div class="container mx-auto px-4 mt-12 pt-8 border-t border-gray-700 text-center text-gray-500 text-sm">
+            <p>Copyrights © 2019 All Rights Reserved | Website Design by Affordable Websites</p>
+        </div>
+    </footer>
+
+    <!-- Scroll to top button -->
+    <button class="fixed bottom-8 right-8 bg-orange-600 text-white p-3 rounded-full shadow-lg hover:bg-orange-700 transition-colors duration-300" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg>
+    </button>
+
+</body>
+</html>
