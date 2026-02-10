@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collins Woodcraft - Design Process</title>
+    <!-- Tailwind CSS CDN for demonstration. In a real project, you'd typically purge unused CSS. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Custom Tailwind config to define brand colors
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { // Using 'brand' as the new primary accent color
+                            light: '#E0C9B2', // Lighter shade
+                            DEFAULT: '#B38F6B', // The brownish-gold button color from image
+                            dark: '#8B6D4F', // A darker shade
+                            darker: '#6E503C', // Even darker for contrast text (like hero title)
+                        },
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom styles to match the original design's aesthetic, especially fonts and colors not directly in default Tailwind. */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;800;900&display=swap'); /* Added more weights for Roboto */
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: #333; /* Dark grey text */
+        }
+        h1, h2, h3, h4 { /* Now all headings also use Roboto */
+            font-family: 'Roboto', sans-serif;
+            /* Tailwind classes like font-bold, font-extrabold will handle specific weights */
+        }
+        .btn-primary {
+            @apply bg-brand-DEFAULT text-white px-6 py-3 rounded-md hover:bg-brand-dark transition-colors duration-300;
+        }
+        .btn-secondary {
+            @apply border border-white text-white px-6 py-3 rounded-md hover:bg-white hover:text-brand-DEFAULT transition-colors duration-300;
+        }
+        /* Custom button style for the hero section on homepage */
+        .btn-hero {
+            background-color: #B38F6B; /* Muted brownish/gold color from the image */
+            @apply text-white px-8 py-3 rounded-md uppercase text-sm font-semibold tracking-wider hover:bg-opacity-90 transition-colors duration-300;
+        }
+        .footer-bg {
+            background-color: #212121; /* Dark background for footer */
+            color: #ccc; /* Lighter text for footer */
+        }
+        .form-input {
+            @apply w-full px-4 py-2 border border-gray-300 rounded-md bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-DEFAULT;
+        }
+        /* Specific style for hero title underline */
+        .hero-title-underline::after {
+            content: '';
+            display: block;
+            width: 50px; /* Adjust length as needed */
+            height: 3px;
+            background-color: #B38F6B; /* Matches your brand color */
+            margin: 10px auto 0; /* Center the underline */
+        }
+
+        /* Styling for the process steps list */
+        .process-list li strong {
+            color: #B38F6B; /* Highlight step titles with brand color */
+        }
+        .process-list ul {
+            @apply list-disc list-inside ml-4 mt-2 mb-4 text-gray-700;
+        }
+        .process-list ul li {
+            @apply mb-1;
+        }
+        .process-list p {
+            @apply mb-4;
+        }
+    </style>
+</head>
+<body class="bg-white">
+
+    <!-- Header Section -->
+    <header class="bg-white shadow-md py-4">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center">
+                <img src="key_images/Collins-Woodcraft-Logo-web.jpg" alt="Collins Woodcraft Logo" class="h-10 w-auto">
+            </a>
+
+            <!-- Navigation (Desktop) -->
+            <nav class="hidden md:flex space-x-8">
+                <a href="index.html" class="text-gray-800 hover:text-brand-DEFAULT font-semibold transition-colors duration-300">HOME</a>
+                <a href="about.html" class="text-gray-800 hover:text-brand-DEFAULT transition-colors duration-300">WHO WE ARE</a>
+                <a href="home-projects.html" class="text-gray-800 hover:text-brand-DEFAULT transition-colors duration-300">HOME PROJECTS</a>
+                <a href="commercial-projects.html" class="text-gray-800 hover:text-brand-DEFAULT transition-colors duration-300">COMMERCIAL PROJECTS</a>
+                <a href="design.html" class="text-brand-DEFAULT font-semibold transition-colors duration-300">DESIGN PROCESS</a> <!-- Highlight current page -->
+            </nav>
+
+            <!-- Mobile Navigation Toggle (Hamburger Icon) -->
+            <div class="md:hidden flex items-center">
+                <button class="text-gray-800 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Navigation Dropdown (Hidden by default, toggle with JS) -->
+        <div class="md:hidden">
+            <!-- Example: <nav class="flex flex-col space-y-2 px-4 py-2 bg-gray-100"> ... </nav> -->
+        </div>
+    </header>
+
+    <!-- Contact Information Section (Hero-like) -->
+    <section class="relative bg-cover bg-center h-[300px] flex items-center justify-center text-center" style="background-image: url('https://images.unsplash.com/photo-1549887532-a5e227092108?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
+        <!-- Placeholder background image. Replace with your actual image. -->
+        <div class="absolute inset-0 bg-black opacity-40"></div> <!-- Overlay for text readability -->
+        <div class="relative z-10 text-white">
+            <h1 class="text-4xl font-extrabold hero-title-underline mb-4">CONTACT INFORMATION</h1>
+            <p class="text-lg mb-2">Take the first easy no obligation step by contacting us today:</p>
+            <p class="text-xl mb-2">Email: <strong class="text-brand-light">collinswoodcraftkerry@gmail.com</strong></p>
+            <p class="text-xl">Call Micheal: <strong class="text-brand-light">087 216 5722</strong></p>
+        </div>
+    </section>
+
+    <!-- Our Collaborative Design Process Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <h2 class="text-4xl font-bold text-gray-800 text-center md:text-left mb-4">Our Collaborative Design Process</h2>
+            <p class="text-xl text-brand-DEFAULT text-center md:text-left mb-8">Free Quotation and Design-no obligation</p>
+
+            <p class="text-gray-700 leading-relaxed mb-6">
+                Bringing your vision for bespoke woodcraft to life is a journey we take together. With over 60 years of combined team expertise, we ensure a seamless process built on
+                collaboration and clear communication. Here's how easy it is to get started:
+            </p>
+
+            <div class="process-list text-gray-700">
+                <p class="mb-2"><strong>Step 1: Share Your Inspiration</strong></p>
+                <p class="mb-2">It all begins with your idea. Email us anything that inspires you and as much detail so that we can create exactly what you want:</p>
+                <ul>
+                    <li>Photos from Pinterest, Instagram, magazines, etc.</li>
+                    <li>Simple sketches or drawings or photos</li>
+                    <li>Room measurements or specific dimensions</li>
+                </ul>
+
+                <p class="mb-2"><strong>Step 2: Free Design & Quotation (No Obligation)</strong></p>
+                <p class="mb-2">Based on your input, our experienced team will develop an initial design concept tailored to your vision. We'll provide this along with a detailed quotation - completely
+                free and with absolutely no obligation to proceed.</p>
+
+                <p class="mb-2"><strong>Step 3: Refinement, Production and Installation</strong></p>
+                <p class="mb-2">Together, we'll perfect the design details to ensure your complete satisfaction. Your custom piece is then carefully constructed in our local workshop. Our professional
+                team completes the process with considerate and precise installation, ensuring a seamless finish and a result you'll be proud of for years to come.</p>
+
+                <p class="mt-8 mb-2"><strong>Ready to start your own bespoke piece?</strong></p>
+                <p class="text-gray-700">Take the first easy step - <strong class="text-brand-DEFAULT">email us your ideas today!</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Information / Contact CTA -->
+    <section class="py-16 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1549491790-95318451f159?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
+        <!-- Optional Overlay - Uncomment if you want to darken images for text readability -->
+        <!-- <div class="absolute inset-0 bg-black opacity-60 z-10"></div> -->
+        <div class="container mx-auto px-4 text-center relative z-10 py-12">
+            <h3 class="text-3xl font-bold text-white mb-6">ADDITIONAL INFORMATION</h3>
+            <p class="text-white text-lg mb-8">If you require further information about any of our services, please do not hesitate to contact us:</p>
+            <p class="text-white text-xl mb-2">Call Micheal: <strong class="text-brand-DEFAULT">087 216 5722</strong></p>
+            <p class="text-white text-xl mb-8">Email: <strong class="text-brand-DEFAULT">collinswoodcraftkerry@gmail.com</strong></p>
+            <a href="#" class="btn-primary inline-block">CONTACT US</a>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer-bg py-16">
+        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-12">
+
+            <!-- Footer Logo & Description -->
+            <div class="md:col-span-1">
+                <a href="index.html" class="flex items-center mb-4">
+                    <img src="key_images/Collins-Woodcraft-White.png" alt="Collins Woodcraft Logo" class="h-10 w-auto">
+                </a>
+                <p class="text-gray-400 leading-relaxed text-sm">
+                    Collins Woodcraft cover all aspects of Carpentry including custom built
+                    furniture, wall panelling, home theatre units, fireplaces, custom carpentry
+                    including all second fix finishes.
+                </p>
+            </div>
+
+            <!-- Request a Callback Form -->
+            <div class="md:col-span-1">
+                <h4 class="text-xl font-semibold text-white mb-6">REQUEST A CALLBACK</h4>
+                <form class="space-y-4">
+                    <div>
+                        <input type="text" placeholder="Your Name*" class="form-input">
+                    </div>
+                    <div>
+                        <input type="tel" placeholder="Phone Number*" class="form-input">
+                    </div>
+                    <div>
+                        <input type="email" placeholder="Email Address*" class="form-input">
+                    </div>
+                    <div>
+                        <textarea placeholder="Your Message" rows="4" class="form-input resize-none"></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary w-full">SEND</button>
+                </form>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="md:col-span-1">
+                <h4 class="text-xl font-semibold text-white mb-6">QUICK LINKS</h4>
+                <ul class="space-y-3">
+                    <li><a href="index.html" class="text-gray-400 hover:text-brand-DEFAULT transition-colors duration-300">Home</a></li>
+                    <li><a href="about.html" class="text-gray-400 hover:text-brand-DEFAULT transition-colors duration-300">Who we are</a></li>
+                    <li><a href="home-projects.html" class="text-gray-400 hover:text-brand-DEFAULT transition-colors duration-300">Home Projects</a></li>
+                    <li><a href="commercial-projects.html" class="text-gray-400 hover:text-brand-DEFAULT transition-colors duration-300">Commercial Projects</a></li>
+                    <li><a href="design.html" class="text-gray-400 hover:text-brand-DEFAULT transition-colors duration-300">Design Process</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Details -->
+            <div class="md:col-span-1">
+                <h4 class="text-xl font-semibold text-white mb-6">CONTACT DETAILS</h4>
+                <p class="text-gray-400 leading-relaxed mb-6">
+                    If you have a carpentry project you
+                    think we will be able to help with and
+                    would like to discuss further, please
+                    contact us.
+                </p>
+                <a href="#" class="btn-primary inline-block mb-6">CONTACT US</a>
+                <p class="text-gray-400 text-base mb-2">Call Micheal: <strong class="text-brand-DEFAULT">087 216 5722</strong></p>
+                <p class="text-gray-400 text-base">Email:<br><strong class="text-brand-DEFAULT">collinswoodcraftkerry@gmail.com</strong></p>
+            </div>
+        </div>
+
+        <div class="container mx-auto px-4 mt-12 pt-8 border-t border-gray-700 text-center text-gray-500 text-sm">
+            <p>Copyright © 2026 All Rights Reserved | Website Design by Rossmore Websites</p>
+        </div>
+    </footer>
+
+    <!-- Scroll to top button -->
+    <button class="fixed bottom-8 right-8 bg-brand-DEFAULT text-white p-3 rounded-full shadow-lg hover:bg-brand-dark transition-colors duration-300" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg>
+    </button>
+
+</body>
+</html>
