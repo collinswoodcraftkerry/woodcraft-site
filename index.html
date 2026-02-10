@@ -6,6 +6,23 @@
     <title>Collins Woodcraft - Home</title>
     <!-- Tailwind CSS CDN for demonstration. In a real project, you'd typically purge unused CSS. -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Custom Tailwind config to define brand colors
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { // Using 'brand' as the new primary accent color
+                            light: '#E0C9B2', // Lighter shade
+                            DEFAULT: '#B38F6B', // The brownish-gold button color from image
+                            dark: '#8B6D4F', // A darker shade
+                            darker: '#6E503C', // Even darker for contrast text (like hero title)
+                        },
+                    }
+                }
+            }
+        }
+    </script>
     <style>
         /* Custom styles to match the original design's aesthetic, especially fonts and colors not directly in default Tailwind. */
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;800;900&display=swap'); /* Added more weights for Roboto */
@@ -19,22 +36,21 @@
             /* Tailwind classes like font-bold, font-extrabold will handle specific weights */
         }
         .btn-primary {
-            @apply bg-orange-600 text-white px-6 py-3 rounded-md hover:bg-orange-700 transition-colors duration-300;
+            @apply bg-brand-DEFAULT text-white px-6 py-3 rounded-md hover:bg-brand-dark transition-colors duration-300;
         }
         .btn-secondary {
-            @apply border border-white text-white px-6 py-3 rounded-md hover:bg-white hover:text-orange-600 transition-colors duration-300;
+            @apply border border-white text-white px-6 py-3 rounded-md hover:bg-white hover:text-brand-DEFAULT transition-colors duration-300;
         }
         /* Custom button style for the hero section to match the image */
         .btn-hero {
-            background-color: #B38F6B; /* Muted brownish/gold color from the image */
-            @apply text-white px-8 py-3 rounded-md uppercase text-sm font-semibold tracking-wider hover:bg-opacity-90 transition-colors duration-300;
+            @apply bg-brand-DEFAULT text-white px-8 py-3 rounded-md uppercase text-sm font-semibold tracking-wider hover:bg-brand-dark transition-colors duration-300;
         }
         .footer-bg {
             background-color: #212121; /* Dark background for footer */
             color: #ccc; /* Lighter text for footer */
         }
         .form-input {
-            @apply w-full px-4 py-2 border border-gray-300 rounded-md bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-600;
+            @apply w-full px-4 py-2 border border-gray-300 rounded-md bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-DEFAULT;
         }
     </style>
 </head>
@@ -50,11 +66,11 @@
 
             <!-- Navigation (Desktop) -->
             <nav class="hidden md:flex space-x-8">
-                <a href="#" class="text-gray-800 hover:text-orange-600 font-semibold transition-colors duration-300">HOME</a>
-                <a href="#" class="text-gray-800 hover:text-orange-600 transition-colors duration-300">WHO WE ARE</a>
-                <a href="#" class="text-gray-800 hover:text-orange-600 transition-colors duration-300">HOME PROJECTS</a>
-                <a href="#" class="text-gray-800 hover:text-orange-600 transition-colors duration-300">COMMERCIAL PROJECTS</a>
-                <a href="#" class="text-gray-800 hover:text-orange-600 transition-colors duration-300">DESIGN PROCESS</a>
+                <a href="#" class="text-gray-800 hover:text-brand-DEFAULT font-semibold transition-colors duration-300">HOME</a>
+                <a href="#" class="text-gray-800 hover:text-brand-DEFAULT transition-colors duration-300">WHO WE ARE</a>
+                <a href="#" class="text-gray-800 hover:text-brand-DEFAULT transition-colors duration-300">HOME PROJECTS</a>
+                <a href="#" class="text-gray-800 hover:text-brand-DEFAULT transition-colors duration-300">COMMERCIAL PROJECTS</a>
+                <a href="#" class="text-gray-800 hover:text-brand-DEFAULT transition-colors duration-300">DESIGN PROCESS</a>
             </nav>
 
             <!-- Mobile Navigation Toggle (Hamburger Icon) -->
@@ -76,21 +92,28 @@
         <div class="absolute inset-0 z-0">
             <img src="key_images/a.jpg" alt="Custom Wardrobe Interior" class="hero-slider-img absolute inset-0 w-full h-full object-cover opacity-100 transition-opacity duration-1000 ease-in-out">
             <img src="key_images/b.jpg" alt="Modern Kitchen Cabinetry" class="hero-slider-img absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000 ease-in-out">
-            <img src="https://images.unsplash.com/photo-1517404453472-f327e5d26f04?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Elegant Fireplace Mantel" class="hero-slider-img absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000 ease-in-out">
-            <!-- If you get another image for your slider, replace the Unsplash URL above with its path (e.g., key_images/c.jpg) -->
+            <!-- Removed the placeholder "Elegant Fireplace Mantel" image -->
         </div>
 
-        <!-- Overlay - Keep it if you want to darken images for text readability -->
+        <!-- Optional Overlay - Uncomment if you want to darken images for text readability -->
         <!-- <div class="absolute inset-0 bg-black opacity-50 z-10"></div> -->
 
         <div class="container mx-auto px-4 relative z-20 text-white max-w-2xl text-center md:text-left">
-            <h1 class="text-5xl font-extrabold mb-4 drop-shadow-lg">Collins Woodcraft</h1>
-            <p class="text-lg mb-8 leading-relaxed drop-shadow-md">
-                Collins Woodcraft cover all aspects of Carpentry including custom built
-                furniture, wall panelling, home theatre units, fireplaces, custom carpentry
-                including all second fix finishes.
-            </p>
-            <!-- Hero Buttons - Styled to match the image -->
+            <!-- White box around "Collins Woodcraft" title with brownish text -->
+            <div class="inline-block bg-white px-4 py-2 mb-4">
+                <h1 class="text-5xl font-extrabold text-brand-darker drop-shadow-lg leading-tight">Collins Woodcraft</h1>
+            </div>
+
+            <!-- Black box around description with white text -->
+            <div class="bg-black bg-opacity-80 px-4 py-4 mb-8">
+                <p class="text-lg text-white leading-relaxed drop-shadow-md">
+                    Collins Woodcraft cover all aspects of Carpentry including custom built
+                    furniture, wall panelling, home theatre units, fireplaces, custom carpentry
+                    including all second fix finishes.
+                </p>
+            </div>
+
+            <!-- Hero Buttons - Styled to match the image with brownish background and white text -->
             <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 justify-center md:justify-start">
                 <a href="about.html" class="btn-hero">ABOUT US</a>
                 <a href="services.html" class="btn-hero">SERVICES</a>
@@ -102,7 +125,7 @@
     <section class="py-16 bg-gray-50">
         <div class="container mx-auto px-4 text-center max-w-4xl">
             <h2 class="text-4xl font-bold mb-4 text-gray-800">Welcome to Collins Woodcraft</h2>
-            <h3 class="text-xl text-orange-600 mb-8">Quality Craftsmanship That Goes Hand in Hand with Excellent Customer Service.</h3>
+            <h3 class="text-xl text-brand-DEFAULT mb-8">Quality Craftsmanship That Goes Hand in Hand with Excellent Customer Service.</h3>
             <p class="text-gray-700 leading-relaxed mb-4">
                 Based in Kerry, Collins Woodcraft has been delivering top quality, carpentry and joinery services to both the domestic and commercial sectors across the Munster region
                 since 2003. We are a well-established team of specialists in carpentry and joinery based in Kerry. Whether you are looking to refresh the look of your home or require
@@ -117,7 +140,7 @@
             <!-- Our Services Column -->
             <div>
                 <h2 class="text-3xl font-bold mb-4 text-gray-800">Our Services</h2>
-                <p class="text-orange-600 text-lg mb-8">Designed and built to suit your needs.</p>
+                <p class="text-brand-DEFAULT text-lg mb-8">Designed and built to suit your needs.</p>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 mb-8">
                     <ul class="list-disc list-inside text-gray-700 space-y-2">
                         <li>Custom built furniture</li>
@@ -135,7 +158,7 @@
                 </div>
                 <p class="text-gray-700 leading-relaxed mb-6">
                     If you require a company with a strong reputation for high standards, reliability
-                    and customer service, then call Micheal on <strong class="text-orange-600">087 216 5722</strong> to discuss your project.
+                    and customer service, then call Micheal on <strong class="text-brand-DEFAULT">087 216 5722</strong> to discuss your project.
                 </p>
                 <a href="#" class="btn-primary inline-block">VIEW SERVICES</a>
             </div>
@@ -143,7 +166,7 @@
             <!-- Gallery Column -->
             <div>
                 <h2 class="text-3xl font-bold mb-4 text-gray-800">Gallery</h2>
-                <p class="text-orange-600 text-lg mb-8">A small sample of our work.</p>
+                <p class="text-brand-DEFAULT text-lg mb-8">A small sample of our work.</p>
                 <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-8">
                     <img src="https://via.placeholder.com/150/FF8C00/FFFFFF?text=Woodcraft+1" alt="Woodcraft gallery image 1" class="w-full h-32 object-cover rounded-lg shadow-md">
                     <img src="https://via.placeholder.com/150/FF8C00/FFFFFF?text=Woodcraft+2" alt="Woodcraft gallery image 2" class="w-full h-32 object-cover rounded-lg shadow-md">
@@ -159,13 +182,13 @@
 
     <!-- Additional Information / Contact CTA -->
     <section class="py-16 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1549491790-95318451f159?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
-        <!-- Overlay removed/commented out -->
+        <!-- Optional Overlay - Uncomment if you want to darken images for text readability -->
         <!-- <div class="absolute inset-0 bg-black opacity-60 z-10"></div> -->
         <div class="container mx-auto px-4 text-center relative z-10 py-12">
             <h3 class="text-3xl font-bold text-white mb-6">ADDITIONAL INFORMATION</h3>
             <p class="text-white text-lg mb-8">If you require further information about any of our services, please do not hesitate to contact us:</p>
-            <p class="text-white text-xl mb-2">Call Micheal: <strong class="text-orange-400">087 216 5722</strong></p>
-            <p class="text-white text-xl mb-8">Email: <strong class="text-orange-400">collinswoodcraftkerry@gmail.com</strong></p>
+            <p class="text-white text-xl mb-2">Call Micheal: <strong class="text-brand-DEFAULT">087 216 5722</strong></p>
+            <p class="text-white text-xl mb-8">Email: <strong class="text-brand-DEFAULT">collinswoodcraftkerry@gmail.com</strong></p>
             <a href="#" class="btn-primary inline-block">CONTACT US</a>
         </div>
     </section>
@@ -174,10 +197,10 @@
     <footer class="footer-bg py-16">
         <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-12">
 
-            <!-- Footer Logo & Description - Also updated to use your actual logo path -->
+            <!-- Footer Logo & Description - Updated to use key_images/Collins-Woodcraft-White.png -->
             <div class="md:col-span-1">
                 <a href="#" class="flex items-center mb-4">
-                    <img src="key_images/Collins-Woodcraft-Logo-web.jpg" alt="Collins Woodcraft Logo" class="h-10 w-auto"> <!-- Using the same logo, assuming it works well on dark backgrounds -->
+                    <img src="key_images/Collins-Woodcraft-White.png" alt="Collins Woodcraft Logo" class="h-10 w-auto">
                 </a>
                 <p class="text-gray-400 leading-relaxed text-sm">
                     Collins Woodcraft cover all aspects of Carpentry including custom built
@@ -210,11 +233,11 @@
             <div class="md:col-span-1">
                 <h4 class="text-xl font-semibold text-white mb-6">QUICK LINKS</h4>
                 <ul class="space-y-3">
-                    <li><a href="#" class="text-gray-400 hover:text-orange-600 transition-colors duration-300">Home</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-orange-600 transition-colors duration-300">Who we are</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-orange-600 transition-colors duration-300">Home Projects</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-orange-600 transition-colors duration-300">Commercial Projects</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-orange-600 transition-colors duration-300">Design Process</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-brand-DEFAULT transition-colors duration-300">Home</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-brand-DEFAULT transition-colors duration-300">Who we are</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-brand-DEFAULT transition-colors duration-300">Home Projects</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-brand-DEFAULT transition-colors duration-300">Commercial Projects</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-brand-DEFAULT transition-colors duration-300">DESIGN PROCESS</a></li>
                 </ul>
             </div>
 
@@ -228,8 +251,8 @@
                     contact us.
                 </p>
                 <a href="#" class="btn-primary inline-block mb-6">CONTACT US</a>
-                <p class="text-gray-400 text-base mb-2">Call Micheal: <strong class="text-orange-400">087 216 5722</strong></p>
-                <p class="text-gray-400 text-base">Email:<br><strong class="text-orange-400">collinswoodcraftkerry@gmail.com</strong></p>
+                <p class="text-gray-400 text-base mb-2">Call Micheal: <strong class="text-brand-DEFAULT">087 216 5722</strong></p>
+                <p class="text-gray-400 text-base">Email:<br><strong class="text-brand-DEFAULT">collinswoodcraftkerry@gmail.com</strong></p>
             </div>
         </div>
 
@@ -239,7 +262,7 @@
     </footer>
 
     <!-- Scroll to top button -->
-    <button class="fixed bottom-8 right-8 bg-orange-600 text-white p-3 rounded-full shadow-lg hover:bg-orange-700 transition-colors duration-300" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
+    <button class="fixed bottom-8 right-8 bg-brand-DEFAULT text-white p-3 rounded-full shadow-lg hover:bg-brand-dark transition-colors duration-300" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg>
     </button>
 
