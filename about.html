@@ -54,7 +54,7 @@
             @apply w-full px-4 py-2 border border-gray-300 rounded-md bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-DEFAULT;
         }
         /* Specific style for the "About" hero title underline */
-        .about-hero-title::after {
+        .hero-title-underline::after {
             content: '';
             display: block;
             width: 50px; /* Adjust length as needed */
@@ -78,22 +78,26 @@
             <nav class="hidden md:flex space-x-8">
                 <a href="index.html" class="text-gray-800 hover:text-brand-DEFAULT font-semibold transition-colors duration-300">HOME</a>
                 <a href="about.html" class="text-brand-DEFAULT font-semibold transition-colors duration-300">WHO WE ARE</a> <!-- Highlight current page -->
-                <a href="#" class="text-gray-800 hover:text-brand-DEFAULT transition-colors duration-300">HOME PROJECTS</a>
-                <a href="#" class="text-gray-800 hover:text-brand-DEFAULT transition-colors duration-300">COMMERCIAL PROJECTS</a>
-                <a href="#" class="text-gray-800 hover:text-brand-DEFAULT transition-colors duration-300">DESIGN PROCESS</a>
+                <a href="home-projects.html" class="text-gray-800 hover:text-brand-DEFAULT transition-colors duration-300">HOME PROJECTS</a>
+                <a href="commercial-projects.html" class="text-gray-800 hover:text-brand-DEFAULT transition-colors duration-300">COMMERCIAL PROJECTS</a>
+                <a href="design.html" class="text-gray-800 hover:text-brand-DEFAULT transition-colors duration-300">DESIGN PROCESS</a>
             </nav>
 
             <!-- Mobile Navigation Toggle (Hamburger Icon) -->
             <div class="md:hidden flex items-center">
-                <button class="text-gray-800 focus:outline-none">
+                <button id="mobile-menu-button" class="text-gray-800 focus:outline-none">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
                 </button>
             </div>
         </div>
         <!-- Mobile Navigation Dropdown (Hidden by default, toggle with JS) -->
-        <div class="md:hidden">
-            <!-- Example: <nav class="flex flex-col space-y-2 px-4 py-2 bg-gray-100"> ... </nav> -->
-        </div>
+        <nav id="mobile-menu" class="hidden md:hidden flex-col space-y-2 px-4 py-2 bg-gray-100 shadow-md">
+            <a href="index.html" class="block text-gray-800 hover:text-brand-DEFAULT py-2 px-4 rounded-md">HOME</a>
+            <a href="about.html" class="block text-brand-DEFAULT py-2 px-4 rounded-md">WHO WE ARE</a> <!-- Highlight current page -->
+            <a href="home-projects.html" class="block text-gray-800 hover:text-brand-DEFAULT py-2 px-4 rounded-md">HOME PROJECTS</a>
+            <a href="commercial-projects.html" class="block text-gray-800 hover:text-brand-DEFAULT py-2 px-4 rounded-md">COMMERCIAL PROJECTS</a>
+            <a href="design.html" class="block text-gray-800 hover:text-brand-DEFAULT py-2 px-4 rounded-md">DESIGN PROCESS</a>
+        </nav>
     </header>
 
     <!-- About Page Hero Section -->
@@ -101,7 +105,7 @@
         <!-- Placeholder background image for 'About' hero. Replace with your actual image. -->
         <div class="absolute inset-0 bg-black opacity-30"></div> <!-- Slight overlay for text readability -->
         <div class="relative z-10 text-center text-white">
-            <h1 class="text-5xl font-extrabold about-hero-title">About</h1>
+            <h1 class="text-5xl font-extrabold hero-title-underline">About</h1>
         </div>
     </section>
 
@@ -197,9 +201,9 @@
                 <ul class="space-y-3">
                     <li><a href="index.html" class="text-gray-400 hover:text-brand-DEFAULT transition-colors duration-300">Home</a></li>
                     <li><a href="about.html" class="text-gray-400 hover:text-brand-DEFAULT transition-colors duration-300">Who we are</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-brand-DEFAULT transition-colors duration-300">Home Projects</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-brand-DEFAULT transition-colors duration-300">Commercial Projects</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-brand-DEFAULT transition-colors duration-300">Design Process</a></li>
+                    <li><a href="home-projects.html" class="text-gray-400 hover:text-brand-DEFAULT transition-colors duration-300">Home Projects</a></li>
+                    <li><a href="commercial-projects.html" class="text-gray-400 hover:text-brand-DEFAULT transition-colors duration-300">Commercial Projects</a></li>
+                    <li><a href="design.html" class="text-gray-400 hover:text-brand-DEFAULT transition-colors duration-300">Design Process</a></li>
                 </ul>
             </div>
 
@@ -227,6 +231,28 @@
     <button class="fixed bottom-8 right-8 bg-brand-DEFAULT text-white p-3 rounded-full shadow-lg hover:bg-brand-dark transition-colors duration-300" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg>
     </button>
+
+    <script>
+        // JavaScript for mobile menu toggle
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                    // Ensure the mobile menu displays as a column when visible
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('flex-col');
+                    } else {
+                        mobileMenu.classList.remove('flex-col');
+                    }
+                });
+            }
+
+            // Image slider script is NOT needed on about.html, so it is omitted here.
+        });
+    </script>
 
 </body>
 </html>
